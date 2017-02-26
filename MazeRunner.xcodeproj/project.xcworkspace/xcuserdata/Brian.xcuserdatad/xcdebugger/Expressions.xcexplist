@@ -14,10 +14,21 @@
          contextName = "static DirtyOne.solveNodes([TileState]) -&gt; [Node]:DirtyOne.swift">
          <PersistentStrings>
             <PersistentString
-               value = "tiles[counter]">
+               value = "counter">
             </PersistentString>
             <PersistentString
-               value = "tiles[counter - 1]">
+               value = "tiles.count &lt;= index+width ? tiles[index+1] : nil">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static NodeSolver.solve([TileState]) -&gt; [TileState]:NodeSolver.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "i">
+            </PersistentString>
+            <PersistentString
+               value = "path.count - 1">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

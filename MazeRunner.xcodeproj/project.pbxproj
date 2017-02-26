@@ -12,6 +12,7 @@
 		D385480B1E62485A007048FD /* TileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D385480A1E62485A007048FD /* TileState.swift */; };
 		D385480E1E624E3E007048FD /* MazeRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D385480D1E624E3E007048FD /* MazeRunner.swift */; };
 		D38548101E624E4C007048FD /* IMazeRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D385480F1E624E4C007048FD /* IMazeRunner.swift */; };
+		D38548121E6278FE007048FD /* TilePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38548111E6278FE007048FD /* TilePosition.swift */; };
 		D3B4D39F1E60FC5B0029BE93 /* Maze.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B4D39E1E60FC5B0029BE93 /* Maze.swift */; };
 		D3B4D3A91E61B2FF0029BE93 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B4D3A81E61B2FF0029BE93 /* Node.swift */; };
 		D3B4D3AB1E61B35F0029BE93 /* INodeSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B4D3AA1E61B35F0029BE93 /* INodeSolver.swift */; };
@@ -37,6 +38,7 @@
 		D385480A1E62485A007048FD /* TileState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileState.swift; sourceTree = "<group>"; };
 		D385480D1E624E3E007048FD /* MazeRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MazeRunner.swift; sourceTree = "<group>"; };
 		D385480F1E624E4C007048FD /* IMazeRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMazeRunner.swift; sourceTree = "<group>"; };
+		D38548111E6278FE007048FD /* TilePosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TilePosition.swift; sourceTree = "<group>"; };
 		D3B4D39B1E60FC5A0029BE93 /* MazeRunner */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MazeRunner; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B4D39E1E60FC5B0029BE93 /* Maze.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maze.swift; sourceTree = "<group>"; };
 		D3B4D3A81E61B2FF0029BE93 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				D385480A1E62485A007048FD /* TileState.swift */,
+				D38548111E6278FE007048FD /* TilePosition.swift */,
 			);
 			name = Enums;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				D385480B1E62485A007048FD /* TileState.swift in Sources */,
 				D38548101E624E4C007048FD /* IMazeRunner.swift in Sources */,
 				D385480E1E624E3E007048FD /* MazeRunner.swift in Sources */,
+				D38548121E6278FE007048FD /* TilePosition.swift in Sources */,
 				D38548091E623EE6007048FD /* main.swift in Sources */,
 				D3B4D39F1E60FC5B0029BE93 /* Maze.swift in Sources */,
 				D32E0B241E61E1F500A72B72 /* NodeSolver.swift in Sources */,
