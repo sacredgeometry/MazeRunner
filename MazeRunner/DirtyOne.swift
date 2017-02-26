@@ -9,7 +9,18 @@
 import Foundation
 
 class DirtyOne: INodeSolver {
-    static func solve(_ tiles: [TileState]) -> [Node] {
+    internal static func solvePath(_ nodes: [Node]) -> [TileState] {
+        return [TileState]()
+    }
+
+    static func solveNodes(_ tiles: [TileState]) -> [Node] {
         return [Node]()
     }
 }
+
+//var output = tiles
+//let pathNodes =
+//
+//for node in pathNodes {
+//    output[node.index] = TileState.node
+//}

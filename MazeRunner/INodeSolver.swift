@@ -10,5 +10,6 @@ import Foundation
 
 
 protocol INodeSolver {
-    static func solve(_ tiles: [TileState]) -> [Node]
+    static func solveNodes(_ tiles: [TileState]) -> [Node]
+    static func solvePath(_ nodes: [Node]) -> [TileState]
 }
