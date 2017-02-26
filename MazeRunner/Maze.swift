@@ -27,7 +27,7 @@ class Maze {
                     output.append(.wall)
                 }
                 else {
-                   output.append(.path)
+                   output.append(.none)
                 }
             }
         }
@@ -38,42 +38,49 @@ class Maze {
     
     func saveSolvedMaze(_ maze: [TileState]) {
         
-        let width = Int((image.size.width))
-        let height = Int((image.size.height))
-        var counter: Int = 0
         
-        for y in 0...height - 1{
+        if maze.count > 0 {
             
-            var line = ""
+            let width = Int((image.size.width))
+            let height = Int((image.size.height))
+            var counter: Int = 0
             
-            for x in 0...width - 1{
+            for y in 0...height - 1{
                 
-                let tile = maze[counter]
+                var line = ""
                 
-                // If not wall (i.e. black pixel)
-                switch tile {
-                case .wall:
-                    line += "███"
-                    break
-                case .path:
-                    line += "   "
-                    break
-                case .start:
-                    line += "[S]"
-                    break
-                case .end:
-                    line += "[E]"
-                    break
-                case .node:
-                    line += "[+]"
-                    break
+                for x in 0...width - 1{
+                    
+                    let tile = maze[counter]
+                    
+                    // If not wall (i.e. black pixel)
+                    switch tile {
+                    case .wall:
+                        line += "███"
+                        break
+                    case .none:
+                        line += "   "
+                        break
+                    case .path:
+                        line += " | "
+                        break
+                    case .start:
+                        line += "[S]"
+                        break
+                    case .end:
+                        line += "[E]"
+                        break
+                    case .node:
+                        line += "[+]"
+                        break
+                    }
+                    
+                    counter+=1
                 }
                 
-                counter+=1
+                print(line)
+                line = ""
             }
-            
-            print(line)
-            line = ""
         }
     }
     

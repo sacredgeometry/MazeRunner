@@ -9,13 +9,15 @@
 import Foundation
 
 class DirtyOne: INodeSolver {
-    internal static func solvePath(_ nodes: [Node]) -> [TileState] {
-        return [TileState]()
-    }
-
     static func solveNodes(_ tiles: [TileState]) -> [Node] {
         return [Node]()
     }
+    
+    static func solvePath(_ nodes: [Node]) -> [Node] {
+        return [Node]()
+    }
+
+    
 }
 
 //var output = tiles

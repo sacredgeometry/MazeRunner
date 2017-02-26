@@ -9,9 +9,10 @@
 import Foundation
 
 enum TileState {
+    case none
     case wall
-    case path
     case node
+    case path
     case start
     case end
 }

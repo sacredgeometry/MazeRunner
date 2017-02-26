@@ -1,5 +1,5 @@
 //
-//  Solver.swift
+//  NodeSolver.swift
 //  MazeRunner
 //
 //  Created by Brian on 25/02/2017.
@@ -13,14 +13,18 @@ class NodeSolver<T: INodeSolver> : IMazeRunner {
         return T.solveNodes(tiles)
     }
     
-    static func findPath(_ nodes: [Node]) -> [TileState]  {
+    static func findPath(_ nodes: [Node]) -> [Node]  {
         return T.solvePath(nodes)
     }
     
     static func solve(_ tiles: [TileState]) -> [TileState] {
         
+        var output = tiles
         
+        for node in findPath(findNodes(tiles)) {
+            output[node.index] = .path
+        }
         
-        return findPath(findNodes(tiles))
+        return output
     }
 }
