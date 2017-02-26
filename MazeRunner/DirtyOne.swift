@@ -10,57 +10,109 @@ import Foundation
 
 class DirtyOne: INodeSolver {
     
+    //TODO: Fix these sizes
     static let width = 10
     static let height = 10
     
+    // Solve Nodes
     static func solveNodes(_ tiles: [TileState]) -> [Node] {
-        
-        //TODO: Fix these sizes
         
         var output = [Node]()
         
         // Rules
         // 1. if on a wall do nothing
         // 2. if on a path but was just on a wall
-        var counter = 0
-        for y in 0...height - 1 {
-            for x in 0...width - 1 {
+        var i = 0
+        for _ in 0...height - 1 {
+            
+            for _ in 0...width - 1 {
              
                 // If wall do nothing...
-                if tiles[counter]  == .wall { }
+                if tiles[i]  == .wall { }
                 else {
-                    if tiles[counter] == .none && tiles[counter - 1] == .wall {
-                        
-                        if getTileAtRelativePosition(counter, tiles, .up) == .wall && getTileAtRelativePosition(counter, tiles, .down) == .wall { }
-                        else {
-                            output.append(Node(counter, [nil, nil, nil, nil]))
-                        }
+                    // Is Path test rules!
+                    if let testedTile = runRuleSet(i, tiles) {
+                        output.append(testedTile)
                     }
                 }
                 
-                counter += 1
+                i += 1
             }
         }
+        
+        // TRIM NODES THAT LEAD TO DEAD ENDS
         
         return output
     }
     
-    static func getTileAtRelativePosition(_ index: Int, _ tiles: [TileState], _ position: TilePosition) -> TileState? {
+    // Node Rules
+    static func runRuleSet(_ index: Int, _ tiles: [TileState]) -> Node? {
+        
+        let relatives = getAllRelatives(index, tiles)
+        let left = relatives["left"]!
+        let up = relatives["up"]!
+        let right = relatives["right"]!
+        let down = relatives["down"]!
+        
+        var isNode = false;
+        
+        // if has bottom or right as path (.none)
+        if isWalkable(right) ||  isWalkable(down) {
+            isNode = true
+        }
+        
+        if (!isWalkable(up) && !isWalkable(down)) && (isWalkable(right) && isWalkable(left)) {
+            isNode = false
+        }
+        
+        //if relatives["up"] == .node && relatives["down"]
+        
+        
+        return isNode ? Node(index, []) : nil
+    }
+    
+    
+    
+    // Solve Path
+    static func solveRoute(_ nodes: [Node]) -> [Node] {
+        return nodes
+    }
+    
+    // -----------------------------------!----
+    // Helper Methods
+    // ---------------------------------------
+    static func isWalkable(_ t: TileState)  -> Bool {
+        return t != .wall || t != .outOfBounds
+    }
+    
+    static func isDeadEnd(_ index: Int, _ tiles: [TileState]) -> Bool {
+        return getAllRelatives(index, tiles).filter { $0.value == .wall }.count >= 3
+    }
+    
+    static func getAllRelatives(_ index: Int, _ tiles: [TileState]) -> [String : TileState] {
+        var output: [String : TileState] = [:]
+        
+        output["left"] = getTilesAtRelativePosition(index, tiles, .left)
+        output["up"] = getTilesAtRelativePosition(index, tiles, .up)
+        output["right"] = getTilesAtRelativePosition(index, tiles, .right)
+        output["down"] = getTilesAtRelativePosition(index, tiles, .down)
+        
+        return output
+    }
+    
+    static func getTilesAtRelativePosition(_ index: Int, _ tiles: [TileState], _ position: TilePosition) -> TileState {
         switch position {
         case .left:
-            return tiles.count <= index-1 ? tiles[index-1] : nil
+            return index-1 >= 0  ? tiles[index-1] : .outOfBounds
         case .up:
-            return tiles.count <= index-width ? tiles[index-width] : nil
+            return index-width >= 0  ? tiles[index-width] : .outOfBounds
         case .right:
-            return tiles.count >= index+1 ? tiles[index+1] : nil
+            return index+1 <= tiles.count ? tiles[index+1] : .outOfBounds
         case .down:
-            return tiles.count >= index+width ? tiles[index+width] : nil
+            return index+width <= tiles.count  ? tiles[index+width] : .outOfBounds
         case .center:
             return tiles[index]
         }
     }
-    
-    static func solvePath(_ nodes: [Node]) -> [Node] {
-        return nodes
-    }
+
 }

@@ -3,10 +3,24 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "Application.init() -&gt; Application:main.swift">
+         contextName = "MazeRunner.solveMaze(URL) -&gt; ():main.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static DirtyOne.getTilesAtRelativePosition(Int, [TileState], TilePosition) -&gt; TileState:DirtyOne.swift">
          <PersistentStrings>
             <PersistentString
-               value = "CFGetRetainCount(Application.currentMaze)">
+               value = "tiles[index-1] ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MazeRunner.solveMaze(URL?) -&gt; ():main.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static DirtyOne.runRuleSet(Int, [TileState]) -&gt; Node?:DirtyOne.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "!(relatives[&quot;down&quot;]?.isWalkable())!">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -22,6 +36,22 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TileState.isWalkable() -&gt; Bool:TileState.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = " self != .wall ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static DirtyOne.isDeadEnd(Int, [TileState]) -&gt; Bool:DirtyOne.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "getAllRelatives(index, tiles).filter { $0 == .wall }.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "static NodeSolver.solve([TileState]) -&gt; [TileState]:NodeSolver.swift">
          <PersistentStrings>
             <PersistentString
@@ -33,10 +63,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MazeRunner.solveMaze(URL?) -&gt; ():main.swift">
-      </ContextState>
-      <ContextState
-         contextName = "MazeRunner.solveMaze(URL) -&gt; ():main.swift">
+         contextName = "Application.init() -&gt; Application:main.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "CFGetRetainCount(Application.currentMaze)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

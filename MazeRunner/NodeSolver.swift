@@ -13,14 +13,15 @@ class NodeSolver<T: INodeSolver> : IMazeRunner {
         return T.solveNodes(tiles)
     }
     
-    static func findPath(_ nodes: [Node]) -> [Node]  {
-        return T.solvePath(nodes)
+    static func findRoute(_ nodes: [Node]) -> [Node]  {
+        return T.solveRoute(nodes)
     }
     
+    // This interates the path information into the tiles set
     static func solve(_ tiles: [TileState]) -> [TileState] {
         
         var output = tiles
-        let path = findPath(findNodes(tiles))
+        let path = findRoute(findNodes(tiles))
         
         for (i, node) in path.enumerated() {
             
@@ -32,6 +33,7 @@ class NodeSolver<T: INodeSolver> : IMazeRunner {
                     output[node.index] = .end
                     continue
             }
+            
             
             output[node.index] = .node
         }

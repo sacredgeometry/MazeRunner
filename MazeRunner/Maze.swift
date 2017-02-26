@@ -2,6 +2,8 @@ import Foundation
 import Cocoa
 
 class Maze {
+    let enableNumberOutput: Bool = false
+    
     var image: NSImage
     var imageRect: CGRect
     var imageAsCG: CGImage
@@ -23,7 +25,7 @@ class Maze {
                     output.append(.wall)
                 }
                 else {
-                   output.append(.none)
+                   output.append(.path)
                 }
             }
         }
@@ -51,11 +53,11 @@ class Maze {
                     case .wall:
                         line += "███"
                         break
-                    case .none:
-                        line += "   "
-                        break
                     case .path:
-                        line += " | "
+                        line += enableNumberOutput ? "\(String(format: "%03d",counter))" : "   "
+                        break
+                    case .route:
+                        line += " * "
                         break
                     case .start:
                         line += "[S]"
@@ -65,6 +67,11 @@ class Maze {
                         break
                     case .node:
                         line += "[+]"
+                        break
+                    case .deadEnd:
+                        line += "[✖]"
+                        break
+                    case .outOfBounds:
                         break
                     }
                     
