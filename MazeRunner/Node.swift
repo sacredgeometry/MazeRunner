@@ -12,9 +12,9 @@ import Cocoa
 class Node {
     
     var index: Int = 0
-    var neighbours: [Node?] = [nil, nil, nil, nil] // Exuates to: left top right bottom
+    var neighbours: [String: Node?] = [:] // Exuates to: left top right bottom
     
-    init (_ index: Int, _ neighbours: [Node?]) {
+    init (_ index: Int, _ neighbours: [String:Node?]) {
         self.index = index
         self.neighbours = neighbours
     }

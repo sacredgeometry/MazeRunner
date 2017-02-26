@@ -9,8 +9,8 @@ class Maze {
     var imageAsCG: CGImage
     var imageRep: NSBitmapImageRep
     
-    var width: Int = 0
-    var height: Int = 0
+    var width: Int
+    var height: Int
     
     func getTilesFromImage(_ image: NSImage) -> [TileState] {
         var output = [TileState]()

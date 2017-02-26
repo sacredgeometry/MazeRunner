@@ -23,6 +23,7 @@ class NodeSolver<T: INodeSolver> : IMazeRunner {
     
     // This interates the route information into the tiles set
     static func solve(_ tiles: [TileState]) -> [TileState] {
+        var startTime = Date()
         
         var output = tiles
         let path = findRoute(findNodes(tiles))
@@ -41,6 +42,8 @@ class NodeSolver<T: INodeSolver> : IMazeRunner {
             
             output[node.index] = .node
         }
+        
+        print("Excecution time: \(String(format: "%.3f", -startTime.timeIntervalSinceNow*1000))ms")
         
         return output
     }
