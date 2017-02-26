@@ -22,7 +22,7 @@ class NodeSolver<T: INodeSolver> : IMazeRunner {
         var output = tiles
         
         for node in findPath(findNodes(tiles)) {
-            output[node.index] = .path
+            output[node.index] = .node
         }
         
         return output

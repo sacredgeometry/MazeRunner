@@ -3,7 +3,29 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "Application.init() -&gt; Application:main.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "CFGetRetainCount(Application.currentMaze)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static DirtyOne.solveNodes([TileState]) -&gt; [Node]:DirtyOne.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tiles[counter]">
+            </PersistentString>
+            <PersistentString
+               value = "tiles[counter - 1]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MazeRunner.solveMaze(URL?) -&gt; ():main.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MazeRunner.solveMaze(URL) -&gt; ():main.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

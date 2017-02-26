@@ -9,6 +9,7 @@ class Application {
     
     init (){
         currentMaze = Maze(URL(fileURLWithPath: "/Users/Brian/Desktop/tiny.png"))
+        currentMaze.solveMaze()
         
         //TODO: This is the file loader needs uncommenting on release
 //        _ = getFilePaths().map {
@@ -31,5 +32,6 @@ class Application {
         return panel.urls
     }
 }
+
 
 var App = Application()

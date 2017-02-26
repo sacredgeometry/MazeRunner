@@ -11,10 +11,6 @@ class Maze {
     var height: Int = 0
     
     func getTilesFromImage(_ image: NSImage) -> [TileState] {
-        
-        let width = Int(image.size.width)
-        let height = Int(image.size.height)
-        
         var output = [TileState]()
         
         for y in 0...height - 1 {
@@ -40,9 +36,6 @@ class Maze {
         
         
         if maze.count > 0 {
-            
-            let width = Int((image.size.width))
-            let height = Int((image.size.height))
             var counter: Int = 0
             
             for y in 0...height - 1{
@@ -84,7 +77,7 @@ class Maze {
         }
     }
     
-    func solveMaze(_ path: URL) {
+    func solveMaze() {
         // --------------------------------------
         // Get Tiles
         // --------------------------------------
@@ -110,7 +103,5 @@ class Maze {
         imageRep = NSBitmapImageRep.init(cgImage: imageAsCG)
         width =  Int((image.size.width))
         height =  Int((image.size.height))
-        
-        solveMaze(url)
     }
 }
