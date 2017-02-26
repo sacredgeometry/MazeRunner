@@ -17,7 +17,7 @@ class NodeSolver<T: INodeSolver> : IMazeRunner {
         return T.solveRoute(nodes)
     }
     
-    // This interates the path information into the tiles set
+    // This interates the route information into the tiles set
     static func solve(_ tiles: [TileState]) -> [TileState] {
         
         var output = tiles

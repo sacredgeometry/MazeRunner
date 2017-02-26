@@ -54,18 +54,26 @@ class DirtyOne: INodeSolver {
         let right = relatives["right"]!
         let down = relatives["down"]!
         
-        var isNode = false;
+        var isNode = false
         
-        // if has bottom or right as path (.none)
-        if isWalkable(right) ||  isWalkable(down) {
-            isNode = true
+        // if start or end node ignore
+        if index < width || index >= tiles.count - width {
+             isNode = true
+        } else {
+            // If is walkable right or down
+            if isWalkable(right) ||  isWalkable(down) {
+                isNode = true
+            }
+            if isWalkable(left) && isWalkable(up) {
+                isNode = true
+            }
+            if (!isWalkable(up) && !isWalkable(down)) && (isWalkable(right) && isWalkable(left)) {
+                isNode = false
+            }
+            if (isWalkable(up) && isWalkable(down)) && (!isWalkable(right) && !isWalkable(left)) {
+                isNode = false
+            }
         }
-        
-        if (!isWalkable(up) && !isWalkable(down)) && (isWalkable(right) && isWalkable(left)) {
-            isNode = false
-        }
-        
-        //if relatives["up"] == .node && relatives["down"]
         
         
         return isNode ? Node(index, []) : nil
@@ -82,7 +90,7 @@ class DirtyOne: INodeSolver {
     // Helper Methods
     // ---------------------------------------
     static func isWalkable(_ t: TileState)  -> Bool {
-        return t != .wall || t != .outOfBounds
+        return t != .wall && t != .outOfBounds
     }
     
     static func isDeadEnd(_ index: Int, _ tiles: [TileState]) -> Bool {
