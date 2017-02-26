@@ -13,8 +13,11 @@ class DirtyOne: INodeSolver {
     //TODO: Fix these sizes
     static let width = 10
     static let height = 10
-    
+
+    // ---------------------------------------
     // Solve Nodes
+    // ---------------------------------------
+    
     static func solveNodes(_ tiles: [TileState]) -> [Node] {
         
         var output = [Node]()
@@ -80,13 +83,16 @@ class DirtyOne: INodeSolver {
     }
     
     
-    
+    // ---------------------------------------
     // Solve Path
+    // ---------------------------------------
+    
     static func solveRoute(_ nodes: [Node]) -> [Node] {
         return nodes
     }
     
-    // -----------------------------------!----
+    
+    // ---------------------------------------
     // Helper Methods
     // ---------------------------------------
     static func isWalkable(_ t: TileState)  -> Bool {

@@ -10,11 +10,15 @@ import Foundation
 
 class NodeSolver<T: INodeSolver> : IMazeRunner {
     static func findNodes(_ tiles: [TileState]) -> [Node]  {
-        return T.solveNodes(tiles)
+        let solvedNodes = T.solveNodes(tiles)
+        print("Total Node Count: \(solvedNodes.count)")
+        return solvedNodes
     }
     
     static func findRoute(_ nodes: [Node]) -> [Node]  {
-        return T.solveRoute(nodes)
+        let solvedPath = T.solveRoute(nodes)
+        print("Amount of nodes in path: \(solvedPath.count)")
+        return solvedPath
     }
     
     // This interates the route information into the tiles set

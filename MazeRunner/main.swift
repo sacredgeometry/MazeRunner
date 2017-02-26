@@ -13,7 +13,7 @@ class Application {
         
         //TODO: This is the file loader needs uncommenting on release
 //        _ = getFilePaths().map {
-//            solveMaze($0)
+//            Maze($0).solveMaze()
 //        }
     }
     
@@ -26,6 +26,7 @@ class Application {
         
         panel.allowsMultipleSelection = true
         panel.allowedFileTypes = ["png", "bmp"]
+        panel.level = 9001
         
         panel.runModal()
         

@@ -85,20 +85,28 @@ class Maze {
     }
     
     func solveMaze() {
+        print("")
+        print("------------------------------------")
+        print("-------------Solving Maze-----------")
+        print("------------------------------------")
+        print("")
+        
         // --------------------------------------
         // Get Tiles
         // --------------------------------------
         let tiles = getTilesFromImage(image)
+        
             
         // --------------------------------------
         // Solve Maze
         // --------------------------------------
         let solvedMaze = MazeRunner<NodeSolver<DirtyOne>>.solve(tiles)
+        print("")
         
         // --------------------------------------
         // Image Rendering
         // --------------------------------------
-        //TODO: Sway this out for an image renderer
+        //TODO: Switch this out for an image renderer
         saveSolvedMaze(solvedMaze)
     }
     
