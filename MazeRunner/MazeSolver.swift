@@ -8,15 +8,15 @@
 
 import Foundation
 
-class NodeSolver<T: INodeSolver> : IMazeRunner {
+class MazeSolver<TNode: INodeSolver, TRoute: IRouteSolver> : IMazeRunner {
     static func findNodes(_ tiles: [TileState]) -> [Node]  {
-        let solvedNodes = T.solveNodes(tiles)
+        let solvedNodes = TNode.solveNodes(tiles)
         print("Total Node Count: \(solvedNodes.count)")
         return solvedNodes
     }
     
     static func findRoute(_ nodes: [Node]) -> [Node]  {
-        let solvedPath = T.solveRoute(nodes)
+        let solvedPath = TRoute.solveRoute(nodes)
         print("Amount of nodes in path: \(solvedPath.count)")
         return solvedPath
     }

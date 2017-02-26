@@ -100,7 +100,7 @@ class Maze {
         // --------------------------------------
         // Solve Maze
         // --------------------------------------
-        let solvedMaze = MazeRunner<NodeSolver<DirtyOne>>.solve(tiles)
+        let solvedMaze = MazeRunner<MazeSolver<DirtyNodeSolver, DirtyRouteSolver>>.solve(tiles)
         print("")
         
         // --------------------------------------
