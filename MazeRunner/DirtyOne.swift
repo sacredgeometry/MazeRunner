@@ -9,7 +9,7 @@
 import Foundation
 
 class DirtyOne: INodeSolver {
-    static func solve(_ nodes: [Node]) -> [Node] {
-        return nodes
+    static func solve(_ tiles: [TileState]) -> [Node] {
+        return [Node]()
     }
 }

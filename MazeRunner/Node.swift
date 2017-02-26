@@ -11,16 +11,10 @@ import Cocoa
 
 class Node {
     
+    var index: Int = 0
     var neighbours: [Node?] = [nil, nil, nil, nil] // left top right bottom
-    var position: Coord = Coord()
     
-    init (_ imageRep: NSBitmapImageRep, _ x: Int, _ y: Int) {
-        position.x = x
-        position.y = y
-        
-        // RULES
-        // if left is wall and current is path (make node)
-        // if 
+    init (_ index: Int, _ tiles: [TileState]) {
     }
     
 }

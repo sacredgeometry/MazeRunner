@@ -10,36 +10,6 @@ class Maze {
     var width: Int = 0
     var height: Int = 0
     
-    func getNodesFromImage(_ image: NSImage) -> [Node] {
-        imageRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-        imageAsCG = image.cgImage(forProposedRect: &imageRect, context: nil, hints: nil)!
-        imageRep = NSBitmapImageRep.init(cgImage: imageAsCG)
-        
-        let width = Int(image.size.width)
-        let height = Int(image.size.height)        
-        
-        var output = [Node]()
-        
-        for y in 0...height - 1 {
-            for x in 0...width - 1 {
-                
-                let pixelColor = imageRep.colorAt(x: x, y: y)?.brightnessComponent
-                
-                // If not wall (i.e. black pixel)
-                if pixelColor != 0 {
-                    
-                    let n = Node(imageRep, x, y)
-                    
-                    output.append(n)
-                }
-            }
-        }
-        
-        
-        return output
-    }
-    
-    // Reduce image data to bool array
     func getTilesFromImage(_ image: NSImage) -> [TileState] {
         
         let width = Int(image.size.width)
@@ -64,10 +34,6 @@ class Maze {
         
         
         return output
-    }
-    
-    static func drawPath(_ path: [Coord]) -> NSImage {
-        return NSImage()
     }
     
     func saveSolvedMaze(_ maze: [TileState]) {
@@ -112,7 +78,6 @@ class Maze {
     }
     
     func solveMaze(_ path: URL) {
-        
         // --------------------------------------
         // Get Tiles
         // --------------------------------------
@@ -123,22 +88,15 @@ class Maze {
         // --------------------------------------
         let solvedMaze = MazeRunner<NodeSolver<DirtyOne>>.solve(tiles)
         
-        
         // --------------------------------------
         // Image Rendering
         // --------------------------------------
-        // draw image
-        //image = MazeRunner.drawPath(path)
-        
-        // output file
+        //TODO: Sway this out for an image renderer
         saveSolvedMaze(solvedMaze)
-        
-        // --------------------------------------
     }
     
     
     init(_ url: URL) {
-        
         image = NSImage(contentsOf: url)!
         imageRect = CGRect(x: 0, y: 0, width: (image.size.width), height: (image.size.height))
         imageAsCG = image.cgImage(forProposedRect: &imageRect, context: nil, hints: nil)!

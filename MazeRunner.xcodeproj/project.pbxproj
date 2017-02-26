@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D32E0B241E61E1F500A72B72 /* NodeSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E0B231E61E1F500A72B72 /* NodeSolver.swift */; };
-		D32E0B2B1E62085A00A72B72 /* Coord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E0B2A1E62085A00A72B72 /* Coord.swift */; };
 		D38548091E623EE6007048FD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38548081E623EE6007048FD /* main.swift */; };
 		D385480B1E62485A007048FD /* TileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D385480A1E62485A007048FD /* TileState.swift */; };
 		D385480E1E624E3E007048FD /* MazeRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D385480D1E624E3E007048FD /* MazeRunner.swift */; };
@@ -34,7 +33,6 @@
 /* Begin PBXFileReference section */
 		D32E0B231E61E1F500A72B72 /* NodeSolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeSolver.swift; sourceTree = "<group>"; };
 		D32E0B261E61E53800A72B72 /* MazeAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MazeAssets.xcassets; sourceTree = "<group>"; };
-		D32E0B2A1E62085A00A72B72 /* Coord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coord.swift; sourceTree = "<group>"; };
 		D38548081E623EE6007048FD /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D385480A1E62485A007048FD /* TileState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileState.swift; sourceTree = "<group>"; };
 		D385480D1E624E3E007048FD /* MazeRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MazeRunner.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				D3B4D3A81E61B2FF0029BE93 /* Node.swift */,
-				D32E0B2A1E62085A00A72B72 /* Coord.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -197,7 +194,6 @@
 				D38548091E623EE6007048FD /* main.swift in Sources */,
 				D3B4D39F1E60FC5B0029BE93 /* Maze.swift in Sources */,
 				D32E0B241E61E1F500A72B72 /* NodeSolver.swift in Sources */,
-				D32E0B2B1E62085A00A72B72 /* Coord.swift in Sources */,
 				D3B4D3A91E61B2FF0029BE93 /* Node.swift in Sources */,
 				D3B4D3AD1E61B4210029BE93 /* DirtyOne.swift in Sources */,
 			);

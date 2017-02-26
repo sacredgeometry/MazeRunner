@@ -9,11 +9,18 @@
 import Foundation
 
 class NodeSolver<T: INodeSolver> : IMazeRunner {
-    static func findPath(_ nodes: [Node]) -> [Node]  {
-        return T.solve(nodes)
+    static func findPath(_ tiles: [TileState]) -> [Node]  {
+        return T.solve(tiles)
     }
     
     static func solve(_ tiles: [TileState]) -> [TileState] {
+        
+        let nodes = findPath(tiles)
+        
+        for node in nodes {
+            
+        }
+        
         return tiles
     }
 }
