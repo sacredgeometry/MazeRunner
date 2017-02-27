@@ -1,7 +1,7 @@
 import Foundation
 import Cocoa
 
-class Maze {
+class Maze <TNodeSolver: INodeSolver, TRouteSolver: IRouteSolver>{
     let enableNumberOutput: Bool = false
     
     var image: NSImage
@@ -9,14 +9,14 @@ class Maze {
     var imageAsCG: CGImage
     var imageRep: NSBitmapImageRep
     
-    var width: Int
-    var height: Int
+//    var width: Int
+//    var height: Int
     
     func getTilesFromImage(_ image: NSImage) -> [TileState] {
         var output = [TileState]()
         
-        for y in 0...height - 1 {
-            for x in 0...width - 1 {
+        for y in 0...Config.height - 1 {
+            for x in 0...Config.width - 1 {
                 
                 let pixelColor = imageRep.colorAt(x: x, y: y)?.brightnessComponent
                 
@@ -40,11 +40,11 @@ class Maze {
         if maze.count > 0 {
             var counter: Int = 0
             
-            for y in 0...height - 1{
+            for y in 0...Config.height - 1{
                 
                 var line = ""
                 
-                for x in 0...width - 1{
+                for x in 0...Config.width - 1{
                     
                     let tile = maze[counter]
                     
@@ -100,7 +100,7 @@ class Maze {
         // --------------------------------------
         // Solve Maze
         // --------------------------------------
-        let solvedMaze = MazeRunner<MazeSolver<DirtyNodeSolver, DirtyRouteSolver>>.solve(tiles)
+        let solvedMaze = MazeRunner<MazeSolver<TNodeSolver, TRouteSolver>>.solve(tiles)
         print("")
         
         // --------------------------------------
@@ -116,7 +116,7 @@ class Maze {
         imageRect = CGRect(x: 0, y: 0, width: (image.size.width), height: (image.size.height))
         imageAsCG = image.cgImage(forProposedRect: &imageRect, context: nil, hints: nil)!
         imageRep = NSBitmapImageRep.init(cgImage: imageAsCG)
-        width =  Int((image.size.width))
-        height =  Int((image.size.height))
+        Config.width =  Int((image.size.width))
+        Config.height =  Int((image.size.height))
     }
 }

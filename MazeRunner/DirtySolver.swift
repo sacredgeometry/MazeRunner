@@ -10,10 +10,6 @@ import Foundation
 
 class DirtyNodeSolver: INodeSolver {
     
-    //TODO: Fix these sizes
-    static let width = 10
-    static let height = 10
-
     // ---------------------------------------
     // Solve Nodes
     // ---------------------------------------
@@ -26,9 +22,9 @@ class DirtyNodeSolver: INodeSolver {
         // 1. if on a wall do nothing
         // 2. if on a path but was just on a wall
         var i = 0
-        for _ in 0...height - 1 {
+        for _ in 0...Config.height - 1 {
             
-            for _ in 0...width - 1 {
+            for _ in 0...Config.width - 1 {
              
                 // If wall do nothing...
                 if tiles[i]  == .wall { }
@@ -60,7 +56,7 @@ class DirtyNodeSolver: INodeSolver {
         var isNode = false
         
         // if start or end node ignore
-        if index < width || index >= tiles.count - width {
+        if index < Config.width || index >= tiles.count - Config.width {
              isNode = true
         } else {
             // If is walkable right or down
@@ -110,11 +106,11 @@ class DirtyNodeSolver: INodeSolver {
         case .left:
             return index-1 >= 0  ? tiles[index-1] : .outOfBounds
         case .up:
-            return index-width >= 0  ? tiles[index-width] : .outOfBounds
+            return index-Config.width >= 0  ? tiles[index-Config.width] : .outOfBounds
         case .right:
             return index+1 <= tiles.count ? tiles[index+1] : .outOfBounds
         case .down:
-            return index+width <= tiles.count  ? tiles[index+width] : .outOfBounds
+            return index+Config.width <= tiles.count  ? tiles[index+Config.width] : .outOfBounds
         case .center:
             return tiles[index]
         }

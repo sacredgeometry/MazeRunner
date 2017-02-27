@@ -9,11 +9,6 @@
 import Foundation
 
 class DirtyRouteSolver : IRouteSolver {
-    
-    //TODO: Fix these sizes
-    static let width = 10
-    static let height = 10
-    
     // ---------------------------------------
     // Solve Path
     // ---------------------------------------
@@ -21,6 +16,7 @@ class DirtyRouteSolver : IRouteSolver {
     static func solveRoute(_ nodes: [Node]) -> [Node] {
         
         // Get neighbours
+        //TODO: Optimize
         let path: [Node] = nodes.map {
             $0.neighbours = getNeighbours($0.index, nodes)
             return $0
@@ -62,11 +58,11 @@ class DirtyRouteSolver : IRouteSolver {
         case .left:
             return i - 1 >= 0  ? nodes.filter{ $0.index == i-1 }.first : nil
         case .up:
-            return i - width >= 0  ? nodes.filter{ $0.index == i-width }.first : nil
+            return i - Config.width >= 0  ? nodes.filter{ $0.index == i-Config.width }.first : nil
         case .right:
             return i + 1 <= nodes.count ? nodes.filter{ $0.index == i+1 }.first : nil
         case .down:
-            return i + width <= nodes.count  ? nodes.filter{ $0.index == i+width }.first : nil
+            return i + Config.width <= nodes.count  ? nodes.filter{ $0.index == i+Config.width }.first : nil
         case .center:
             return nodes[i]
         }

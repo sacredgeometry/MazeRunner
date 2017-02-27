@@ -26,7 +26,8 @@ class MazeSolver<TNode: INodeSolver, TRoute: IRouteSolver> : IMazeRunner {
         var startTime = Date()
         
         var output = tiles
-        let path = findRoute(findNodes(tiles))
+        let nodes = findNodes(tiles)
+        let path = findRoute(nodes)
         
         for (i, node) in path.enumerated() {
             
@@ -38,7 +39,6 @@ class MazeSolver<TNode: INodeSolver, TRoute: IRouteSolver> : IMazeRunner {
                     output[node.index] = .end
                     continue
             }
-            
             
             output[node.index] = .node
         }
